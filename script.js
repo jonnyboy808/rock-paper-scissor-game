@@ -2,6 +2,8 @@ var items = ['rock', 'paper', 'scissors'];
 
 var playGameBtn = document.querySelector('#play-game');
 
+var score = {wins: 0, losses: 0, ties: 0}
+
 function random_item(items) {
 	return items[Math.floor(Math.random() * items.length)];
 }
@@ -29,12 +31,15 @@ function playGame() {
 			switch (compChoice) {
 				case 'paper':
 					alert('Computer won!');
+                    score.losses++;
 					break;
 				case 'scissors':
 					alert('You Won!');
+                    score.wins++;
 					break;
 				case 'rock':
 					alert('Its a draw!');
+                    score.ties++;
 					break;
 			}
 			break;
@@ -42,12 +47,15 @@ function playGame() {
 			switch (compChoice) {
 				case 'paper':
 					alert("It's a draw!");
+                    score.ties++;
 					break;
 				case 'scissors':
 					alert('Computer won!');
+                    score.losses++;
 					break;
 				case 'rock':
 					alert('You Won!');
+                    score.wins++;
 					break;
 			}
 			break;
@@ -55,12 +63,15 @@ function playGame() {
 			switch (compChoice) {
 				case 'paper':
 					alert('You won!');
+                    score.wins++;
 					break;
 				case 'scissors':
 					alert("It's a draw!");
+                    score.ties++;
 					break;
 				case 'rock':
 					alert('Computer won!');
+                    score.losses++;
 					break;
 			}
 			break;
@@ -70,6 +81,7 @@ function playGame() {
 			);
 	}
 
+    alert("Your score is: " + score.wins + " wins, " + score.losses + " losses, and " + score.ties + " ties.")
 	askToPlayAgain();
 }
 
